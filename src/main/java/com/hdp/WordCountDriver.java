@@ -36,6 +36,9 @@ public class WordCountDriver extends Configured implements Tool {
         Job job = Job.getInstance(getConf(), WordCountDriver.class.getSimpleName());
         job.setJarByClass(WordCountDriver.class);
 
+        //设置reduce并行任务数
+        // job.setNumReduceTasks(3);
+
         //自定义mapper和reduce
         job.setMapperClass(WordCountMapper.class);
         job.setReducerClass(WordCountReduce.class);
